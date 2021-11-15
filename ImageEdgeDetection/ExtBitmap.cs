@@ -16,6 +16,7 @@ namespace ImageEdgeDetection
 {
     public static class ExtBitmap
     {
+
         public static Bitmap CopyToSquareCanvas(this Bitmap sourceBitmap, int canvasWidthLenght)
         {
             float ratio = 1.0f;
@@ -437,6 +438,55 @@ namespace ImageEdgeDetection
                                                         1.0, 0, grayscale);
 
             return resultBitmap;
+        }
+
+        //apply color filter
+        public static Bitmap ApplyFilter(Bitmap bmp, int alpha, int red, int blue, int green)
+        {
+            Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
+
+            for (int i = 0; i < bmp.Width; i++)
+                for (int x = 0; x < bmp.Height; x++)
+                {
+                    Color c = bmp.GetPixel(i, x);
+                    Color cLayer = Color.FromArgb(c.A / alpha, c.R / red, c.G / green, c.B / blue);
+                    temp.SetPixel(i, x, cLayer);
+                }
+            return temp;
+        }
+
+        //apply color filter to swap pixel colors
+        public static Bitmap ApplyFilterSwap(Bitmap bmp)
+        {
+
+            Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
+
+
+            for (int i = 0; i < bmp.Width; i++)
+            {
+                for (int x = 0; x < bmp.Height; x++)
+                {
+                    Color c = bmp.GetPixel(i, x);
+                    Color cLayer = Color.FromArgb(c.A, c.G, c.B, c.R);
+                    temp.SetPixel(i, x, cLayer);
+                }
+
+            }
+            return temp;
+        }
+
+        //this call the method ApplyFilterSwap to swap the pixel colors
+        public static Bitmap ApplySwapFilter(this Bitmap sourceBitmap)
+        {
+            Bitmap resultBitmap = ExtBitmap.ApplyFilterSwap(new Bitmap(sourceBitmap));
+
+            return resultBitmap;
+        }
+
+        //this call the method ApplyFilter to apply a color filter 
+        public static Bitmap ApplyCrazyFilter(this Bitmap sourceBitmap)
+        {
+            return ApplyFilter(new Bitmap(sourceBitmap), 1, 1, 2, 1);
         }
     }  
 }

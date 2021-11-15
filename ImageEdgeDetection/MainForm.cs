@@ -20,6 +20,7 @@ namespace ImageEdgeDetection
     {
         private Bitmap originalBitmap = null;
         private Bitmap previewBitmap = null;
+        private Bitmap tempBitmap = null;
         private Bitmap resultBitmap = null;
         
         public MainForm()
@@ -45,13 +46,13 @@ namespace ImageEdgeDetection
                 previewBitmap = originalBitmap.CopyToSquareCanvas(picPreview.Width);
                 picPreview.Image = previewBitmap;
 
-                ApplyFilter(true);
+                ApplyEdgeDetection(true);
             }
         }
 
         private void btnSaveNewImage_Click(object sender, EventArgs e)
         {
-            ApplyFilter(false);
+            ApplyEdgeDetection(false);
 
             if (resultBitmap != null)
             {
@@ -84,7 +85,37 @@ namespace ImageEdgeDetection
             }
         }
 
-        private void ApplyFilter(bool preview)
+        /*
+         * Method to call the filter and apply to the image
+         */
+
+        private void ApplyFilter(object sender, EventArgs e)
+		{
+            if (previewBitmap == null || cmbApplyFilter.SelectedIndex == -1)
+                return;
+
+            Bitmap selectedSource = originalBitmap;
+            Bitmap bitmapResult = null;
+
+            if (selectedSource != null)
+                if (cmbApplyFilter.SelectedItem.ToString() == "None")
+                    bitmapResult = selectedSource;
+                else if (cmbApplyFilter.SelectedItem.ToString() == "Swap Filter")
+                    bitmapResult = selectedSource.ApplySwapFilter();
+                else if (cmbApplyFilter.SelectedItem.ToString() == "Crazy Filter")
+                    bitmapResult = selectedSource.ApplyCrazyFilter();
+
+            picPreview.Image = bitmapResult;
+            tempBitmap = bitmapResult;
+            cmbEdgeDetection.SelectedIndex = 0;
+            cmbEdgeDetection.Visible = true;
+        }
+
+        /*
+         * Method to call the Edge Detection and apply to the image
+         */
+
+        private void ApplyEdgeDetection(bool preview)
         {
             if (previewBitmap == null || cmbEdgeDetection.SelectedIndex == -1)
             {
@@ -194,7 +225,7 @@ namespace ImageEdgeDetection
 
         private void NeighbourCountValueChangedEventHandler(object sender, EventArgs e)
         {
-            ApplyFilter(true);
+            ApplyEdgeDetection(true);
         }
     }
 }
