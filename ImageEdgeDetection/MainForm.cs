@@ -103,8 +103,8 @@ namespace ImageEdgeDetection
 
             picPreview.Image = bitmapResult;
             tempBitmap = bitmapResult;
-            cmbApplyFilter.SelectedIndex = 0;
-            cmbApplyFilter.Visible = true;
+            cmbEdgeDetection.SelectedIndex = 0;
+            cmbEdgeDetection.Visible = true;
         }
 
         /*
