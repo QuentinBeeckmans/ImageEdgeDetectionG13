@@ -82,7 +82,7 @@
             "Crazy Filter"});
             this.cmbApplyFilter.Location = new System.Drawing.Point(168, 727);
             this.cmbApplyFilter.Name = "cmbApplyFilter";
-            this.cmbApplyFilter.Size = new System.Drawing.Size(198, 37);
+            this.cmbApplyFilter.Size = new System.Drawing.Size(200, 37);
             this.cmbApplyFilter.TabIndex = 21;
             this.cmbApplyFilter.SelectedIndexChanged += new System.EventHandler(this.ApplyFilter);
             // 

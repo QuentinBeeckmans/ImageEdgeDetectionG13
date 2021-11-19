@@ -4,12 +4,7 @@
  * Licensed under Ms-PL 
 */
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Imaging;
@@ -28,6 +23,7 @@ namespace ImageEdgeDetection
             InitializeComponent();
 
             cmbEdgeDetection.SelectedIndex = 0;
+            cmbApplyFilter.SelectedIndex = 0;
         }
 
         private void btnOpenOriginal_Click(object sender, EventArgs e)
