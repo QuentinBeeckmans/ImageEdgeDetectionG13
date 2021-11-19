@@ -44,7 +44,7 @@
             this.picPreview.Cursor = System.Windows.Forms.Cursors.Cross;
             this.picPreview.Location = new System.Drawing.Point(12, 12);
             this.picPreview.Name = "picPreview";
-            this.picPreview.Size = new System.Drawing.Size(776, 691);
+            this.picPreview.Size = new System.Drawing.Size(776, 614);
             this.picPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picPreview.TabIndex = 13;
             this.picPreview.TabStop = false;
@@ -52,7 +52,7 @@
             // btnOpenOriginal
             // 
             this.btnOpenOriginal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenOriginal.Location = new System.Drawing.Point(12, 720);
+            this.btnOpenOriginal.Location = new System.Drawing.Point(293, 643);
             this.btnOpenOriginal.Name = "btnOpenOriginal";
             this.btnOpenOriginal.Size = new System.Drawing.Size(150, 46);
             this.btnOpenOriginal.TabIndex = 15;
@@ -63,7 +63,7 @@
             // btnSaveNewImage
             // 
             this.btnSaveNewImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveNewImage.Location = new System.Drawing.Point(638, 720);
+            this.btnSaveNewImage.Location = new System.Drawing.Point(293, 750);
             this.btnSaveNewImage.Name = "btnSaveNewImage";
             this.btnSaveNewImage.Size = new System.Drawing.Size(150, 46);
             this.btnSaveNewImage.TabIndex = 16;
@@ -80,9 +80,9 @@
             "None",
             "Swap Filter",
             "Crazy Filter"});
-            this.cmbApplyFilter.Location = new System.Drawing.Point(168, 727);
+            this.cmbApplyFilter.Location = new System.Drawing.Point(148, 707);
             this.cmbApplyFilter.Name = "cmbApplyFilter";
-            this.cmbApplyFilter.Size = new System.Drawing.Size(200, 37);
+            this.cmbApplyFilter.Size = new System.Drawing.Size(181, 37);
             this.cmbApplyFilter.TabIndex = 21;
             this.cmbApplyFilter.SelectedIndexChanged += new System.EventHandler(this.ApplyFilter);
             // 
@@ -110,7 +110,7 @@
             "Prewitt Grayscale",
             "Kirsch",
             "Kirsch Grayscale"});
-            this.cmbEdgeDetection.Location = new System.Drawing.Point(372, 727);
+            this.cmbEdgeDetection.Location = new System.Drawing.Point(371, 707);
             this.cmbEdgeDetection.Name = "cmbEdgeDetection";
             this.cmbEdgeDetection.Size = new System.Drawing.Size(260, 37);
             this.cmbEdgeDetection.TabIndex = 20;
