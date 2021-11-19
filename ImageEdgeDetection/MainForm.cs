@@ -90,23 +90,23 @@ namespace ImageEdgeDetection
             if (previewBitmap == null || cmbApplyFilter.SelectedIndex == -1)
                 return;
 
-            Bitmap selectedSource = originalBitmap;
+            Bitmap selectedSource = previewBitmap;
             Bitmap bitmapResult = null;
 
             if (selectedSource != null)
                 if (cmbApplyFilter.SelectedItem.ToString() == "None")
-                    bitmapResult = selectedSource;
+                    bitmapResult = originalBitmap;
                 else if (cmbApplyFilter.SelectedItem.ToString() == "Swap Filter")
                     bitmapResult = selectedSource.ApplySwapFilter();
                 else if (cmbApplyFilter.SelectedItem.ToString() == "Crazy Filter")
                     bitmapResult = selectedSource.ApplyCrazyFilter();
 
             picPreview.Image = bitmapResult;
+            previewBitmap = bitmapResult;
             tempBitmap = bitmapResult;
             cmbEdgeDetection.SelectedIndex = 0;
             cmbEdgeDetection.Visible = true;
         }
-
         /*
          * Method to call the Edge Detection and apply to the image
          */
