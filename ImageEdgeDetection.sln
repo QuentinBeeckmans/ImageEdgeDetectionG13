@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageEdgeDetection", "ImageEdgeDetection\ImageEdgeDetection.csproj", "{7DBEE0D3-2DBD-4E8A-BA07-BDB1C95EB366}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageEdgeDetectionTest", "UnitTestProject1\ImageEdgeDetectionTest.csproj", "{3EF00D43-2875-46F2-A0A7-CE35E55C7FE0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageEdgeDetectionTests", "ImageEdgeDetectionTests\ImageEdgeDetectionTests.csproj", "{7EDDDD2D-43FB-46A0-B582-06F464D32054}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,14 +21,14 @@ Global
 		{7DBEE0D3-2DBD-4E8A-BA07-BDB1C95EB366}.Release|Any CPU.ActiveCfg = Release|x86
 		{7DBEE0D3-2DBD-4E8A-BA07-BDB1C95EB366}.Release|x86.ActiveCfg = Release|x86
 		{7DBEE0D3-2DBD-4E8A-BA07-BDB1C95EB366}.Release|x86.Build.0 = Release|x86
-		{3EF00D43-2875-46F2-A0A7-CE35E55C7FE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3EF00D43-2875-46F2-A0A7-CE35E55C7FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3EF00D43-2875-46F2-A0A7-CE35E55C7FE0}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3EF00D43-2875-46F2-A0A7-CE35E55C7FE0}.Debug|x86.Build.0 = Debug|Any CPU
-		{3EF00D43-2875-46F2-A0A7-CE35E55C7FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3EF00D43-2875-46F2-A0A7-CE35E55C7FE0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3EF00D43-2875-46F2-A0A7-CE35E55C7FE0}.Release|x86.ActiveCfg = Release|Any CPU
-		{3EF00D43-2875-46F2-A0A7-CE35E55C7FE0}.Release|x86.Build.0 = Release|Any CPU
+		{7EDDDD2D-43FB-46A0-B582-06F464D32054}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EDDDD2D-43FB-46A0-B582-06F464D32054}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EDDDD2D-43FB-46A0-B582-06F464D32054}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7EDDDD2D-43FB-46A0-B582-06F464D32054}.Debug|x86.Build.0 = Debug|Any CPU
+		{7EDDDD2D-43FB-46A0-B582-06F464D32054}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EDDDD2D-43FB-46A0-B582-06F464D32054}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EDDDD2D-43FB-46A0-B582-06F464D32054}.Release|x86.ActiveCfg = Release|Any CPU
+		{7EDDDD2D-43FB-46A0-B582-06F464D32054}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

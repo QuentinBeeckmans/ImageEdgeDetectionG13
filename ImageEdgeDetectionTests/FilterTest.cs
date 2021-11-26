@@ -1,6 +1,6 @@
-﻿using System.Drawing;
-using ImageEdgeDetection;
+﻿using ImageEdgeDetection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Drawing;
 
 
 namespace ImageEdgeDetectionTest
@@ -59,7 +59,7 @@ namespace ImageEdgeDetectionTest
                     Assert.AreEqual(cResult.G, cOriginal.G);
                     Assert.AreEqual(cResult.B, cOriginal.B);
                     Assert.AreEqual(cResult.R, cOriginal.R);
-                    
+
                 }
         }
     }
