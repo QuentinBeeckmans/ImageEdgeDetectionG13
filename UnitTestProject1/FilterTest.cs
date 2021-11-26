@@ -3,16 +3,16 @@ using ImageEdgeDetection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
-namespace UnitTestProject1
+namespace ImageEdgeDetectionTest
 {
     [TestClass]
-    public class UnitTest1
+    public class FilterTest
     {
-        private const string FILE_URI = "C:\\img\\orca.png";
+        private const string FILE_URI = "C:\\Users\\lacpe\\Pictures\\Mario.png";
         private Bitmap originalBitmap = new Bitmap(FILE_URI);
 
         [TestMethod]
-        public void ApplyCrazyFilterIsNotNull()
+        public void ApplySwapFilterIsNotNull()
         {
             Bitmap bitmap = ExtBitmap.ApplySwapFilter(originalBitmap);
             Assert.IsNotNull(bitmap);
@@ -21,7 +21,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void ApplyCrazyFilterCorrectColors()
         {
-            Bitmap bitmapResult = ExtBitmap.ApplyCrazyFilter(originalBitmap);
+            Bitmap bitmapResult = ExtBitmap.ApplyCrazyFilter(originalBitmap); //Keep in a variable the applicated filter on picture
             int alpha = 1;
             int red = 1;
             int blue = 2;
@@ -30,8 +30,8 @@ namespace UnitTestProject1
             for (int i = 0; i < originalBitmap.Width; i++)
                 for (int x = 0; x < originalBitmap.Height; x++)
                 {
-                    Color cOriginal = originalBitmap.GetPixel(i, x);
-                    Color cResult = bitmapResult.GetPixel(i, x);
+                    Color cOriginal = originalBitmap.GetPixel(i, x); //Retrieve color from original picture
+                    Color cResult = bitmapResult.GetPixel(i, x); //Retrieve color from transformed picture
                     Assert.AreEqual(cResult.A, cOriginal.A / alpha);
                     Assert.AreEqual(cResult.R, cOriginal.R / red);
                     Assert.AreEqual(cResult.B, cOriginal.B / blue);
