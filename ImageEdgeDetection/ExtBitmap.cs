@@ -314,6 +314,21 @@ namespace ImageEdgeDetection
             return resultBitmap;
         }
 
+        public static Bitmap ConvultionFilterTest(Bitmap sourceBitmap,
+                                            double[,] filterMatrix,
+                                                 double factor = 1,
+                                                      int bias = 0,
+                                            bool grayscale = false)
+        {
+            Bitmap resultBitmap = ExtBitmap.ConvolutionFilter(sourceBitmap,
+                                                              filterMatrix,
+                                                              factor,
+                                                              bias,
+                                                              grayscale);
+
+            return resultBitmap;
+        }
+
         public static Bitmap Laplacian3x3Filter(this Bitmap sourceBitmap, 
                                                     bool grayscale = true)
         {

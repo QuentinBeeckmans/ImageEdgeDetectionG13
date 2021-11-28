@@ -1,4 +1,5 @@
-﻿using ImageEdgeDetection;
+﻿
+using ImageEdgeDetection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
 
@@ -8,16 +9,17 @@ namespace ImageEdgeDetectionTest
     [TestClass]
     public class FilterTest
     {
-        private const string FILE_URI = "C:\\Users\\lacpe\\Pictures\\Mario.png";
+        private const string FILE_URI = @"..\\..\\Image\\Mario.png";
         private Bitmap originalBitmap = new Bitmap(FILE_URI);
 
         [TestMethod]
         public void ApplySwapFilterIsNotNull()
         {
-            Bitmap bitmap = ExtBitmap.ApplySwapFilter(originalBitmap);
-            Assert.IsNotNull(bitmap);
+            Bitmap bitmapResult = ExtBitmap.ApplySwapFilter(originalBitmap);
+            Assert.IsNotNull(bitmapResult);
         }
 
+        // Test to verify if CrazyFilter is working
         [TestMethod]
         public void ApplyCrazyFilterCorrectColors()
         {
@@ -39,27 +41,24 @@ namespace ImageEdgeDetectionTest
                 }
         }
 
+
+        // Test to verify if SwapFilter is working
         [TestMethod]
         public void ApplySwapFilterCorrectColors()
         {
             Bitmap resultBitmap = ExtBitmap.ApplyFilterSwap(originalBitmap);
-            /*
-            int alpha = 1;
-            int red = 1;
-            int blue = 2;
-            int green = 1;
-            */
 
+            
             for (int i = 0; i < originalBitmap.Width; i++)
                 for (int x = 0; x < originalBitmap.Height; x++)
                 {
                     Color cOriginal = originalBitmap.GetPixel(i, x);
                     Color cResult = resultBitmap.GetPixel(i, x);
+                    // This verrify the swapping of pixel colors for example Red to Green
                     Assert.AreEqual(cResult.A, cOriginal.A);
-                    Assert.AreEqual(cResult.G, cOriginal.G);
-                    Assert.AreEqual(cResult.B, cOriginal.B);
-                    Assert.AreEqual(cResult.R, cOriginal.R);
-
+                    Assert.AreEqual(cResult.R, cOriginal.G);
+                    Assert.AreEqual(cResult.G, cOriginal.B);
+                    Assert.AreEqual(cResult.B, cOriginal.R);
                 }
         }
     }
