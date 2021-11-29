@@ -9,15 +9,43 @@ namespace ImageEdgeDetectionTest
     [TestClass]
     public class FilterTest
     {
-        private const string FILE_URI = @"..\\..\\Image\\Mario.png";
-        private Bitmap originalBitmap = new Bitmap(FILE_URI);
+        private Bitmap originalBitmap = ImageEdgeDetectionTests.Properties.Resources.Mario;
 
         [TestMethod]
         public void ApplySwapFilterIsNotNull()
         {
-            Bitmap bitmapResult = ExtBitmap.ApplySwapFilter(originalBitmap);
+            Bitmap bitmapResult = ExtBitmap.ApplyFilterSwap(originalBitmap);
             Assert.IsNotNull(bitmapResult);
         }
+
+        // Test to verify if SwapFilter is working
+        [TestMethod]
+        public void ApplySwapFilterCorrectColors()
+        {
+            Bitmap resultBitmap = ExtBitmap.ApplyFilterSwap(originalBitmap);
+
+
+            for (int i = 0; i < originalBitmap.Width; i++)
+                for (int x = 0; x < originalBitmap.Height; x++)
+                {
+                    Color cOriginal = originalBitmap.GetPixel(i, x);
+                    Color cResult = resultBitmap.GetPixel(i, x);
+                    // This verrify the swapping of pixel colors for example Red to Green
+                    Assert.AreEqual(cResult.A, cOriginal.A);
+                    Assert.AreEqual(cResult.R, cOriginal.G);
+                    Assert.AreEqual(cResult.G, cOriginal.B);
+                    Assert.AreEqual(cResult.B, cOriginal.R);
+                }
+        }
+
+
+        [TestMethod]
+        public void ApplyCrazyFilterIsNotNull()
+        {
+            Bitmap bitmapResult = ExtBitmap.ApplyCrazyFilter(originalBitmap);
+            Assert.IsNotNull(bitmapResult);
+        }
+
 
         // Test to verify if CrazyFilter is working
         [TestMethod]
@@ -42,24 +70,6 @@ namespace ImageEdgeDetectionTest
         }
 
 
-        // Test to verify if SwapFilter is working
-        [TestMethod]
-        public void ApplySwapFilterCorrectColors()
-        {
-            Bitmap resultBitmap = ExtBitmap.ApplyFilterSwap(originalBitmap);
-
-            
-            for (int i = 0; i < originalBitmap.Width; i++)
-                for (int x = 0; x < originalBitmap.Height; x++)
-                {
-                    Color cOriginal = originalBitmap.GetPixel(i, x);
-                    Color cResult = resultBitmap.GetPixel(i, x);
-                    // This verrify the swapping of pixel colors for example Red to Green
-                    Assert.AreEqual(cResult.A, cOriginal.A);
-                    Assert.AreEqual(cResult.R, cOriginal.G);
-                    Assert.AreEqual(cResult.G, cOriginal.B);
-                    Assert.AreEqual(cResult.B, cOriginal.R);
-                }
-        }
+      
     }
 }

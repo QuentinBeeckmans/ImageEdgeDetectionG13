@@ -313,7 +313,7 @@ namespace ImageEdgeDetection
 
             return resultBitmap;
         }
-
+      
         public static Bitmap ConvultionFilterTest(Bitmap sourceBitmap,
                                             double[,] filterMatrix,
                                                  double factor = 1,

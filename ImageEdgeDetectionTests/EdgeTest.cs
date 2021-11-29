@@ -8,9 +8,7 @@ namespace ImageEdgeDetectionTest
     [TestClass]
     public class EdgeTest
     {
-        private const string FILE_URI = "C:\\Users\\lacpe\\Pictures\\Mario.png";
-
-        private Bitmap originalBitmap = new Bitmap(FILE_URI);
+        private Bitmap originalBitmap = ImageEdgeDetectionTests.Properties.Resources.Mario;
 
         [TestMethod]
         public void Laplacian3x3FilterNotNull()
@@ -29,6 +27,24 @@ namespace ImageEdgeDetectionTest
             CheckPixels(originalBitmap, bitmapResult);
         }
 
+        [TestMethod]
+        public void ApplyLaplacian5x5FilterCorrectEdges()
+        {
+            Bitmap bitmapResult = ExtBitmap.Laplacian5x5Filter(originalBitmap);
+            originalBitmap = ExtBitmap.ConvultionFilterTest(originalBitmap, Matrix.Laplacian5x5, 1.0, 0, true);
+
+            CheckPixels(originalBitmap, bitmapResult);
+        }
+
+        [TestMethod]
+        public void ApplyLaplacianOfGaussianFilterCorrectEdges()
+        {
+            Bitmap bitmapResult = ExtBitmap.LaplacianOfGaussianFilter(originalBitmap);
+            originalBitmap = ExtBitmap.ConvultionFilterTest(originalBitmap, Matrix.LaplacianOfGaussian, 1.0, 0, true);
+
+            CheckPixels(originalBitmap, bitmapResult);
+        }
+
         private void CheckPixels(Bitmap originalBitmap, Bitmap bitmapResult)
         {
             for (int i = 0; i < originalBitmap.Width; i++)
@@ -41,24 +57,7 @@ namespace ImageEdgeDetectionTest
         }
 
         /*
-         
-        public static Bitmap Laplacian3x3Filter(this Bitmap sourceBitmap, 
-                                                    bool grayscale = true)
-        {
-            Bitmap resultBitmap = ExtBitmap.ConvolutionFilter(sourceBitmap, 
-                                    Matrix.Laplacian3x3, 1.0, 0, grayscale);
 
-            return resultBitmap;
-        }
-
-        public static Bitmap Laplacian5x5Filter(this Bitmap sourceBitmap, 
-                                                    bool grayscale = true)
-        {
-            Bitmap resultBitmap = ExtBitmap.ConvolutionFilter(sourceBitmap, 
-                                    Matrix.Laplacian5x5, 1.0, 0, grayscale);
-
-            return resultBitmap;
-        }
 
         public static Bitmap LaplacianOfGaussianFilter(this Bitmap sourceBitmap)
         {
@@ -66,7 +65,9 @@ namespace ImageEdgeDetectionTest
                                   Matrix.LaplacianOfGaussian, 1.0, 0, true);
 
             return resultBitmap;
-        }*/
+        }
+        
+         */
 
 
     }
