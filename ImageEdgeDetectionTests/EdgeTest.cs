@@ -58,20 +58,5 @@ namespace ImageEdgeDetectionTest
                     Assert.AreEqual(cResult, cOriginal);
                 }
         }
-
-        /*
-
-
-        public static Bitmap LaplacianOfGaussianFilter(this Bitmap sourceBitmap)
-        {
-            Bitmap resultBitmap = ExtBitmap.ConvolutionFilter(sourceBitmap, 
-                                  Matrix.LaplacianOfGaussian, 1.0, 0, true);
-
-            return resultBitmap;
-        }
-        
-         */
-
-
     }
 }
