@@ -471,8 +471,8 @@ namespace ImageEdgeDetection
         }
         
 
-        //apply color filter to swap pixel colors
-        public static Bitmap ApplyFilterSwap(Bitmap bmp)
+        //Apply color filter to swap pixel colors
+        public static Bitmap ApplyFilterSwap(this Bitmap bmp)
         {
 
             Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
@@ -489,17 +489,6 @@ namespace ImageEdgeDetection
 
             }
             return temp;
-        }
-
-        //this call the method ApplyFilterSwap to swap the pixel colors
-        public static Bitmap ApplySwapFilter(this Bitmap sourceBitmap)
-        {
-            /*
-            Bitmap resultBitmap = ExtBitmap.ApplyFilterSwap(new Bitmap(sourceBitmap));
-
-            return resultBitmap;
-            */
-            return ApplyFilter(new Bitmap(sourceBitmap), 1, 2, 2, 1);
         }
 
         //this call the method ApplyFilter to apply a color filter 

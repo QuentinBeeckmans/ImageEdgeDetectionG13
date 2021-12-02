@@ -47,6 +47,7 @@ namespace ImageEdgeDetectionTest
             CheckPixels(originalBitmap, bitmapResult);
         }
 
+        // Method to compare if two images have the same result for each color pixel
         private void CheckPixels(Bitmap originalBitmap, Bitmap bitmapResult)
         {
             for (int i = 0; i < originalBitmap.Width; i++)

@@ -97,7 +97,7 @@ namespace ImageEdgeDetection
                 if (cmbApplyFilter.SelectedItem.ToString() == "None")
                     bitmapResult = originalBitmap;
                 else if (cmbApplyFilter.SelectedItem.ToString() == "Swap Filter")
-                    bitmapResult = selectedSource.ApplySwapFilter();
+                    bitmapResult = selectedSource.ApplyFilterSwap();
                 else if (cmbApplyFilter.SelectedItem.ToString() == "Crazy Filter")
                     bitmapResult = selectedSource.ApplyCrazyFilter();
 
