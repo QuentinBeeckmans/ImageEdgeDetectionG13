@@ -17,7 +17,7 @@ namespace ImageEdgeDetectionTest
             Assert.IsNotNull(bitmapResult);
         }
 
-
+        // Test to verify if Laplacian3x3FilterCorrectEdges is working
         [TestMethod]
         public void ApplyLaplacian3x3FilterCorrectEdges()
         {
@@ -27,6 +27,7 @@ namespace ImageEdgeDetectionTest
             CheckPixels(originalBitmap, bitmapResult);
         }
 
+        // Test to verify if Laplacian5x5FilterCorrectEdges is working
         [TestMethod]
         public void ApplyLaplacian5x5FilterCorrectEdges()
         {
@@ -36,6 +37,7 @@ namespace ImageEdgeDetectionTest
             CheckPixels(originalBitmap, bitmapResult);
         }
 
+        // Test to verify if LaplacianOfGaussianFilterCorrectEdges is working
         [TestMethod]
         public void ApplyLaplacianOfGaussianFilterCorrectEdges()
         {
@@ -50,8 +52,8 @@ namespace ImageEdgeDetectionTest
             for (int i = 0; i < originalBitmap.Width; i++)
                 for (int x = 0; x < originalBitmap.Height; x++)
                 {
-                    Color cOriginal = originalBitmap.GetPixel(i, x);
-                    Color cResult = bitmapResult.GetPixel(i, x);
+                    Color cOriginal = originalBitmap.GetPixel(i, x); //Retrieve color from original picture
+                    Color cResult = bitmapResult.GetPixel(i, x); //Retrieve color from transformed picture
                     Assert.AreEqual(cResult, cOriginal);
                 }
         }
