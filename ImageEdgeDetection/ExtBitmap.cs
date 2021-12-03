@@ -313,6 +313,21 @@ namespace ImageEdgeDetection
 
             return resultBitmap;
         }
+      
+        public static Bitmap ConvultionFilterTest(Bitmap sourceBitmap,
+                                            double[,] filterMatrix,
+                                                 double factor = 1,
+                                                      int bias = 0,
+                                            bool grayscale = false)
+        {
+            Bitmap resultBitmap = ExtBitmap.ConvolutionFilter(sourceBitmap,
+                                                              filterMatrix,
+                                                              factor,
+                                                              bias,
+                                                              grayscale);
+
+            return resultBitmap;
+        }
 
         public static Bitmap Laplacian3x3Filter(this Bitmap sourceBitmap, 
                                                     bool grayscale = true)
@@ -454,9 +469,10 @@ namespace ImageEdgeDetection
                 }
             return temp;
         }
+        
 
-        //apply color filter to swap pixel colors
-        public static Bitmap ApplyFilterSwap(Bitmap bmp)
+        //Apply color filter to swap pixel colors
+        public static Bitmap ApplyFilterSwap(this Bitmap bmp)
         {
 
             Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
@@ -473,14 +489,6 @@ namespace ImageEdgeDetection
 
             }
             return temp;
-        }
-
-        //this call the method ApplyFilterSwap to swap the pixel colors
-        public static Bitmap ApplySwapFilter(this Bitmap sourceBitmap)
-        {
-            Bitmap resultBitmap = ExtBitmap.ApplyFilterSwap(new Bitmap(sourceBitmap));
-
-            return resultBitmap;
         }
 
         //this call the method ApplyFilter to apply a color filter 
